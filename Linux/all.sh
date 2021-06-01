@@ -2,7 +2,7 @@
 
 set +x
 
-if [ $# -ne 1]
+if [ $# -ne 1 ]
 then
     echo "Usage: $0 [drive]"
     echo "  e.g $0 /dev/sdb"
