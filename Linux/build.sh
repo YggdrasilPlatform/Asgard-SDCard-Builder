@@ -10,7 +10,7 @@ fi
 
 cd asgard_u-boot
 make ARCH=arm CROSS_COMPILE=${CROSS_COMPILER} distclean
-make ARCH=arm CROSS_COMPILE=${CROSS_COMPILER} stm32mp15_basic_defconfig
+make ARCH=arm CROSS_COMPILE=${CROSS_COMPILER} asgard_defconfig
 make ARCH=arm CROSS_COMPILE=${CROSS_COMPILER} DEVICE_TREE=stm32mp157c-dk2 all -j$((`nproc`+1))
 cd ..
 
