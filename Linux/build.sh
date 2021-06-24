@@ -16,7 +16,7 @@ cd ..
 
 cd asgard_linux
 make ARCH=arm CROSS_COMPILE=${CROSS_COMPILER} distclean
-make ARCH=arm CROSS_COMPILE=${CROSS_COMPILER} stm32mp1xx_defconfig
+make ARCH=arm CROSS_COMPILE=${CROSS_COMPILER} asgard_defconfig
 make ARCH=arm CROSS_COMPILE=${CROSS_COMPILER} uImage vmlinux dtbs LOADADDR=0xC2000040 -j$((`nproc`+1))
-#make ARCH=arm CROSS_COMPILE=${CROSS_COMPILER} modules
+make ARCH=arm CROSS_COMPILE=${CROSS_COMPILER} modules
 cd ..
