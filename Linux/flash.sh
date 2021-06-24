@@ -68,9 +68,9 @@ echo "Setting up extlinux.conf..."
 sudo mkdir -p ${ROOTFS_MOUNT}/boot/extlinux
 sudo sh -c "echo 'label Linux Kernel' > ${ROOTFS_MOUNT}/boot/extlinux/extlinux.conf"
 sudo sh -c "echo 'kernel /boot/zImage' >> ${ROOTFS_MOUNT}/boot/extlinux/extlinux.conf"
-sudo sh -c "echo 'append console=ttySTM0,115200 root=/dev/mmcblk0p4 ro rootfstype=ext4 rootwait vt.global_cursor_default=0' >> ${ROOTFS_MOUNT}/boot/extlinux/extlinux.conf"
+sudo sh -c "echo 'append console=ttySTM0,115200 console=tty1,115200 root=/dev/mmcblk0p4 ro rootfstype=ext4 rootwait vt.global_cursor_default=0' >> ${ROOTFS_MOUNT}/boot/extlinux/extlinux.conf"
 sudo sh -c "echo 'fdtdir /boot/dtbs/kernel/' >> ${ROOTFS_MOUNT}/boot/extlinux/extlinux.conf"
-sudo sh -c "echo 'devicetree /boot/dtbs/kernel/stm32mp157c-dk2.dtb' >> ${ROOTFS_MOUNT}/boot/extlinux/extlinux.conf"
+sudo sh -c "echo 'devicetree /boot/dtbs/kernel/stm32mp157c-asgard.dtb' >> ${ROOTFS_MOUNT}/boot/extlinux/extlinux.conf"
 
 echo "Copying Kernel image..."
 
