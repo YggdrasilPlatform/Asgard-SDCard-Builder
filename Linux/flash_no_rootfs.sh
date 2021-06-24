@@ -42,7 +42,7 @@ sync
 
 sudo umount ${ROOTFS_MOUNT}
 
-echo "\nFlashing successul!"
+echo "Flashing successful!"
 
 sudo rm -rf ${ROOTFS_MOUNT}
 

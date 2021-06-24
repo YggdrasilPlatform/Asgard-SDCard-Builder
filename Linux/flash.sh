@@ -58,6 +58,12 @@ pv rootfs.tar.gz | sudo tar -xzf - -C ${ROOTFS_MOUNT}
 echo "Syncing..."
 sync
 
+echo "Copying Kernel Modules..."
+cd asgard_linux
+make ARCH=arm modules_install INSTALL_MOD_PATH=${ROOTFS_MOUNT}
+cd ..
+sync
+
 echo "Setting permissions..."
 
 sudo chown root:root ${ROOTFS_MOUNT}
@@ -86,12 +92,15 @@ echo "Setting up fstab..."
 sudo mkdir -p ${ROOTFS_MOUNT}/etc
 sudo sh -c "echo '/dev/mmcblk0p4  /  auto  errors=remount-ro  0  1' >> ${ROOTFS_MOUNT}/etc/fstab"
 
+echo "Copying splash image..."
+sudo cp -v ./splash.bmp ${ROOTFS_MOUNT}/boot/splash.bmp
+
 echo "Syncing..."
 sync
 
 sudo umount ${ROOTFS_MOUNT}
 
-echo "\nFlashing successul!"
+echo "Flashing successful!"
 
 sudo rm -rf ${ROOTFS_MOUNT}
 
